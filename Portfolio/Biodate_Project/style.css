@@ -1,0 +1,262 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px; /* Base font size */
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5; 
+    padding: 20px;
+    line-height: 1.6;
+    color: #160e0e; 
+}
+
+h1 {
+    text-align: center;
+    color: #1d2129; /* Darker, professional color */
+    margin-bottom: 30px;
+    font-size: 26px; /* Slightly adjusted size */
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 15px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto; /* Added top/bottom margin */
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px; /* Slightly more rounded */
+    box-shadow: 0 4px 12px rgba(156, 15, 15, 0.1); /* Softer, more diffused shadow */
+}
+
+/* Section Styling using fieldset */
+.section { /* Retained class name for CSS, but applies to fieldset tag in HTML */
+    margin-bottom: 30px; /* Increased spacing */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* More rounded sections */
+    background-color: #fdfdfd; /* Slightly off-white */
+    box-shadow: 0 2px 5px rgba(29, 70, 184, 0.05); /* Subtle shadow for sections */
+}
+
+fieldset {
+    border: none; /* Remove default fieldset border */
+    padding: 0; /* Reset padding */
+    margin: 0; /* Reset margin */
+}
+.section legend {
+    color: #000000;
+    margin-bottom: 15px; /* Increased spacing below legend */
+    font-family: 'Arial', sans-serif; /* Consistent font */
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 10px; /* Padding around legend text */
+    width: auto; /* Allow legend to size based on content */
+    border-bottom: none; /* Remove any potential default legend border */
+}
+
+
+/* Label Styling */
+label {
+    display: block;
+    margin-bottom: 6px; /* Adjusted spacing */
+    font-weight: bold;
+    color: #4b4f56; /* Softer label color */
+}
+
+/* Visually hidden class for labels that are covered by legend */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px; /* Increased padding */
+    margin-bottom: 16px; /* Adjusted spacing */
+    border: 1px solid #ccd0d5; /* Softer border color */
+    border-radius: 5px; /* More rounded inputs */
+    font-size: 15px; /* Slightly larger font */
+    background-color: #f5f6f7; /* Light background for inputs */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); /* Focus indicator */
+    background-color: #fff;
+}
+
+/* Radio Button Styling */
+.radio-group {
+    display: flex;
+    gap: 15px; /* Adjusted gap */
+    flex-wrap: wrap;
+    margin-bottom: 10px; /* Spacing below group */
+}
+
+.radio-group input[type="radio"] {
+    width: auto;
+    margin-right: 6px;
+    margin-bottom: 0;
+    accent-color: #007bff; /* Modern way to color radio/checkbox */
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    margin-bottom: 0;
+    color: #333; /* Ensure label text color */
+}
+
+/* Checkbox Styling */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Adjusted minmax */
+    gap: 12px; /* Adjusted gap */
+    margin-bottom: 10px; /* Spacing below group */
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+    margin-bottom: 0;
+    accent-color: #007bff; /* Modern way to color radio/checkbox */
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    margin-bottom: 0;
+    color: #333; /* Ensure label text color */
+}
+
+/* File Upload */
+input[type="file"] {
+    padding: 12px; /* Increased padding */
+    border: 2px dashed #007bff;
+    background-color: #f8f9ff;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.2s ease-in-out;
+}
+
+input[type="file"]:hover {
+    background-color: #e9f3ff; /* Lighter hover state */
+}
+
+/* Table Styling */
+.education-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px; /* Adjusted spacing */
+}
+
+.education-table th,
+.education-table td {
+    border: 1px solid #e0e0e0; /* Lighter table borders */
+    padding: 10px; /* Increased padding */
+    text-align: left;
+}
+
+.education-table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    font-size: 14px; /* Adjusted font size */
+}
+
+.education-table td input {
+    width: 100%;
+    border: none; /* Keep borderless for clean look */
+    padding: 6px; /* Adjusted padding */
+    margin: 0;
+    background-color: transparent;
+    border-radius: 3px; /* Subtle rounding */
+}
+
+.education-table td input:focus {
+    background-color: #e9f3ff; /* Lighter focus background */
+    border: 1px solid #007bff; /* Add border on focus for clarity */
+    outline: none;
+}
+
+/* Button Styling */
+.submit-section {
+    text-align: center;
+    margin-top: 35px; /* Increased spacing */
+    padding-top: 25px; /* Increased spacing */
+    border-top: 1px solid #e0e0e0; /* Lighter border */
+}
+
+.submit-btn,
+.reset-btn {
+    padding: 12px 30px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease; /* Added transition */
+}
+
+.submit-btn:hover,
+.reset-btn:hover {
+    transform: translateY(-1px); /* Subtle lift effect */
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.reset-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.reset-btn:hover {
+    background-color: #545b62;
+}
+
+.submit-section {
+        display: flex; /* Use flex for button stacking */
+        flex-direction: column;
+}
+    
+.submit-btn,
+    .reset-btn {
+        margin: 8px 0; /* Adjusted margin for stacked buttons */
+        width: 100%;
+}

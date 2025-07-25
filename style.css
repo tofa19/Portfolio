@@ -1,0 +1,1378 @@
+/* Basic Reset - Ensures consistent styling across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Open Sans', sans-serif; /* Primary font for body text */
+    line-height: 1.6;
+    color: #333; /* Default text color */
+    background-color: hsla(0, 26%, 24%, 0); /* Light background for the page */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body.menu-open {
+    overflow: hidden;
+    padding-right: 15px; /* Compensate for scrollbar disappearance */
+}
+
+/* Headings Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif; /* Serif font for headings */
+    color: #000; /* Darker color for prominence */
+    margin-bottom: 0.8em; /* Spacing below headings */
+}
+
+/* Universal Container for consistent content width */
+.container {
+    max-width: 1200px; /* Maximum width of content area */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Horizontal padding for smaller screens */
+}
+
+/* Reusable padding for sections */
+.section-padding {
+    padding: 80px 0; /* Vertical padding */
+}
+
+/* Background color for alternate sections */
+.bg-light {
+    background-color: var(--harvard-gray-light);
+}
+
+/* Harvard-inspired Color Palette (CSS Variables) */
+:root {
+    --harvard-red: #A51C30; /* Primary Harvard Red */
+    --harvard-gray-dark: #333; /* Dark gray for text/accents */
+    --harvard-gray-light: #f4f4f4; /* Light gray for backgrounds */
+    --text-color: #555; /* General text color */
+}
+
+/* Main Header Styling */
+.main-header {
+    position: relative; /* Ensure relative for absolute children */
+    z-index: 1000;
+    background: transparent;
+    color: var(--harvard-gray-dark);
+    font-family: 'Open Sans', sans-serif; /* Consistent font for header */
+    backdrop-filter: blur(10px);
+    animation: slideDown 0.5s ease-out;
+}
+
+.main-header .container {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Vertically align items */
+    padding: 5px -20px; /* Add padding for spacing */
+    position: relative; /* Position relative for absolute children */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+.main-header .logo a {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #cc2020;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.main-header .logo a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--harvard-red);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.main-header .logo a:hover::after {
+    transform: scaleX(1);
+}
+
+/* --- Harvard University style: right black header box for search & menu --- */
+.main-header .header-actions {
+    display: flex;
+    align-items: center; /* This is the key for vertical alignment */
+    justify-content: flex-end;
+    padding-top: 0px;
+    padding-bottom: 30px;
+    gap: -10px;; /* Space between actions */
+    background: #111;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1001;
+}
+
+.main-header .header-action {
+    color:transparent; /* Default color for text */
+    font-size: 1.2rem; /* Font size for action items */
+    text-decoration: none;
+    display: flex;
+    align-items: center;      /* This centers the content inside the button */
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0 36px;
+    height: 100%; /* Take full height of parent */
+    font-weight: 600;
+    border-radius: 0;
+    transition: background 0.2s;
+    position: relative;
+    gap: 12px; /* Use gap for spacing */
+}
+
+/* The vertical divider line */
+.main-header .header-action + .header-action::before {
+    content: "";
+    position: absolute;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 1px;
+    background: #222;
+}
+
+/* Styling for the icons */
+.main-header .header-action .fa-search,
+.main-header .header-action .fa-bars {
+    font-size: 1.7rem;
+    color: #fff; /* Ensure icons are white */
+    transition: color 0.2s;
+}
+.main-header .header-action .fa-search {
+    position: relative;
+    top: 18px; /* Adjust this value as needed (e.g., 1px, 3px) */
+}
+/* Styling for the "Menu" text */
+.main-header .header-action span {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1; /* Prevents extra vertical space */
+    margin: 0; /* Remove default margins */
+}
+
+.main-header .header-action:hover,
+.main-header .header-action:focus {
+    background: rgba(255,255,255,0.08);
+    outline: none;
+}
+/* Navigation Styles */
+.main-nav {
+    position: fixed;
+    top: 100px;
+    width: 300px;
+    height: 100%;
+    background: #333;
+    padding: 80px 0 20px;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    overflow-y: auto; /* Make menu scrollable */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.main-nav.active {
+    left: 0;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-list li {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+}
+
+.main-nav.active .nav-list li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.nav-list li:nth-child(1) { transition-delay: 0.1s; }
+.nav-list li:nth-child(2) { transition-delay: 0.2s; }
+.nav-list li:nth-child(3) { transition-delay: 0.3s; }
+
+.nav-list a {
+    display: block;
+    padding: 15px 30px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.nav-list a:hover {
+    background: rgba(255,255,255,0.1);
+    padding-left: 35px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    pointer-events: none;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Update Hamburger Menu Icon */
+.hamburger {
+    display: block !important; /* Always show hamburger */
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: var(--harvard-gray-dark);
+    cursor: pointer;
+    z-index: 1000;
+    position: relative;
+}
+
+.hamburger-line {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #333;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 100px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Side Navigation */
+.side-nav {
+    position: fixed;
+    top: 0;
+    left: -100vw; /* Start fully hidden to the left */
+    width: 100vw;
+    height: 100vh;
+    background: #111;
+    z-index: 2000;
+    transition: left 0.6s cubic-bezier(0.77,0,0.175,1);
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    overflow: hidden;
+}
+
+.side-nav.active {
+    left: 0; /* Slide in from left */
+    transition: left 0.6s cubic-bezier(0.77,0,0.175,1);
+}
+.side-nav .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    margin-top: 120px; /* Space from top for header */
+}
+.side-nav .nav-list li {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    margin-bottom: 32px;
+    text-align: left;
+    padding-left: 60px;
+}
+
+
+
+.side-nav .nav-list li a {
+    color: #fff;
+    font-family: 'Merriweather', serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    text-decoration: none;
+    display: block;
+    padding: 0;
+    transition: color 0.2s;
+    letter-spacing: 1px;
+}
+
+.side-nav .nav-list li a:hover {
+    color: #A51C30;
+    background: none;
+    padding-left: 0;
+}
+.side-nav .close-btn {
+    position: absolute;
+    top: 32px;
+    right: 40px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    z-index: 2100;
+    transition: color 0.2s;
+}
+.side-nav .close-btn:hover {
+    color: #A51C30;
+}
+
+/* Menu Toggle Animation */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* Menu Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s cubic-bezier(0.77,0,0.175,1);
+    z-index: 1999;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+/* Menubar styles */
+.menubar {
+    display: flex; /* Arrange items horizontally */
+    justify-content: center; /* Center the menu items */
+    align-items: center; /* Align items vertically */
+    list-style: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+}
+
+.menubar li {
+    margin: 0 15px; /* Add spacing between menu items */
+    position: relative;
+    cursor: pointer;
+
+}
+
+.menubar a {
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Default text color */
+    font-weight: 600; /* Bold text */
+    font-size: 16px; /* Font size */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.menubar a:hover {
+    color: #A51C30; /* Highlight color on hover */
+}
+
+/* Harvard-style header */
+.harvard-header {
+    background: #111;
+    color: #fff;
+    font-family: 'Open Sans', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    padding: 0 32px;
+    height: 56px;
+    position: relative;
+    z-index: 100;
+}
+.harvard-header .harvard-logo {
+    display: flex;
+    align-items: center;
+    margin-right: 32px;
+}
+.harvard-header .harvard-logo img {
+    height: 36px;
+    margin-right: 12px;
+}
+.harvard-header .harvard-univ {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    line-height: 1.1;
+}
+.harvard-header .harvard-alert {
+    color: #fff;
+    background: none;
+    margin-right: auto;
+    margin-left: 16px;
+    font-size: 0.98rem;
+    display: flex;
+    align-items: center;
+}
+.harvard-header .harvard-alert .dot {
+    height: 10px;
+    width: 10px;
+    background: #e53935;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 7px;
+}
+.harvard-header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    background: #111;
+    height: 56px;
+    padding: 0 36px;
+    border-radius: 0 0 0 0;
+    box-shadow: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1001;
+    min-width: 260px;
+}
+.harvard-header .header-action {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
+    height: 56px;
+    font-weight: 600;
+}
+.harvard-header .header-action:hover,
+.harvard-header .header-action:focus {
+    background: rgba(255,255,255,0.08);
+    outline: none;
+}
+.harvard-header .header-action .fa-search,
+.harvard-header .header-action .fa-bars {
+    font-size: 1.3rem;
+}
+.harvard-header .header-action span {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+@media (max-width: 600px) {
+ 
+    .main-header .header-action span {
+        display: none;
+    }
+    .harvard-header .harvard-univ {
+        font-size: 1rem;
+    }
+    .harvard-header .harvard-alert {
+        font-size: 0.9rem;
+        margin-left: 8px;
+    }
+    .side-nav .nav-list li {
+        padding-left: 24px;
+    }
+    .side-nav .nav-list li a {
+        font-size: 2rem;
+    }
+    .side-nav .close-btn {
+        top: 24px;
+        right: 18px;
+        font-size: 1.6rem;
+    }
+    .side-nav .nav-list {
+        margin-top: 80px;
+    }
+    .harvard-header .header-action span {
+        display: none;
+    }
+    .harvard-header .header-actions {
+        gap: 12px;
+        padding: 0 10px;
+        min-width: 0;
+    }
+    .harvard-header .header-action span {
+        display: none;
+    }
+}
+
+/* Hero Section Styling */
+.hero-section {
+    /* Update background properties to make it static */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 150px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    /* Add these properties to ensure the background stays fixed */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Update Hero Content and Typing Effect */
+.hero-content {
+    text-align: center;
+    color: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--harvard-red);
+    width: fit-content; /* Change from max-width to width */
+    margin: 0 auto;
+    padding-right: 5px; /* Add padding for the cursor */
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--harvard-red) }
+}
+
+/* Enhanced Button Styling */
+.hero-content .btn-primary {
+    display: inline-block;
+    padding: 15px 35px;
+    font-size: 1.1em;
+    color: #fff;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--harvard-red);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+.hero-content .btn-primary:hover {
+    color: #fff;
+    border-color: var(--harvard-red);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(165, 28, 48, 0.4);
+}
+
+.hero-content .btn-primary:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Button shine effect */
+.hero-content .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.hero-content .btn-primary:hover::after {
+    animation: shine 1.5s ease;
+}
+
+@keyframes shine {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-100%, -100%);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(100%, 100%);
+    }
+}
+
+/* Hero Section Animations */
+.typing-effect {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--harvard-red);
+    animation: typing 3.5s steps(40, end),
+               blink-caret 0.75s step-end infinite;
+    margin: 0 auto;
+    max-width: fit-content;
+}
+
+.fade-up-effect {
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    animation-delay: 3.5s;
+}
+
+.slide-up-effect {
+    opacity: 0;
+    animation: slideUp 0.5s ease forwards;
+    animation-delay: 4s;
+}
+
+.hero-content {
+    text-align: center;
+    color: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #fff; /* White text for contrast */
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* About Me Section Styling */
+.about-me-section {
+    background-color: #fff;
+    text-align: center; /* Center the heading */
+    padding: 80px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden; /* Prevent overflow of child elements */
+}
+
+.about-content {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin-top: 40px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center; /* Center content when wrapped */
+
+}
+
+.profile-image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* Make image circular */
+    object-fit: cover; /* Ensure image covers the area without distortion */
+    border: 5px solid var(--harvard-red); /* Red border */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Soft shadow */
+}
+
+.profile-image {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.profile-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(165, 28, 48, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-image:hover::after {
+    opacity: 1;
+}
+
+.profile-text {
+    flex: 1;
+    text-align: left;
+    max-width: 600px; /* Limit text width for readability */
+}
+
+/* Force About Me text visible */
+.profile-text .animate-text,
+.profile-text .fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+}
+
+.profile-text p {
+    margin-bottom: 1.5rem;
+    
+    line-height: 1.8;
+    color: #333;
+}
+
+/* NEW: Styling for the LLM generated bio output area */
+.generated-bio-output {
+    background-color: #f0f8ff; /* Light blue background */
+    border: 1px solid #cceeff;
+    border-left: 4px solid var(--harvard-red); /* Harvard red accent */
+    padding: 20px;
+    margin-top: 30px; /* Space from original bio and button */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    text-align: left;
+    font-style: italic; /* Default to italic for a "generated" feel */
+    color: #444;
+    display: none; /* Hidden by default until content is generated */
+}
+
+.generated-bio-output .generated-text {
+    margin-bottom: 15px;
+    font-style: normal; /* Override italic for the actual generated text */
+    line-height: 1.6;
+}
+
+.generated-bio-output .loading-message {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    display: none; /* Hidden by default, shown by JS during loading */
+}
+
+.generated-bio-output .error-message {
+    color: #dc3545; /* Red for errors */
+    text-align: center;
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* Utility classes for margin top (Tailwind-like) */
+.mt-2 { margin-top: 0.5rem; /* ~8px */ }
+.mt-4 { margin-top: 1rem; /* ~16px */ }
+
+/* Typing Animation */
+.typing-text {
+    overflow: hidden;
+    border-right: .15em solid #000000;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #38030b }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade-in animation for sections */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Portfolio Section Styling */
+.portfolio-section {
+    background-color: var(--harvard-gray-light);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.portfolio-item {
+    background: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.portfolio-content {
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-icon {
+    font-size: 2.5em;
+    color: #A51C30;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-text:nth-child(1) { animation-delay: 0.2s; }
+.animate-text:nth-child(2) { animation-delay: 0.4s; }
+
+.animate-text {
+    background: linear-gradient(45deg, #A51C30, #333);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 3s ease infinite;
+}
+
+.tech-stack {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+}
+
+.tech-badge {
+    padding: 5px 15px;
+    border-radius: 20px;
+    background: #f0f0f0;
+    color: #333;
+    font-size: 0.9em;
+    transition: transform 0.3s ease;
+    animation: slideIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+.tech-badge:hover {
+    transform: scale(1.1);
+}
+
+.hover-effect {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.hover-effect:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
+}
+
+.hover-effect:hover:before {
+    left: 100%;
+}
+
+.portfolio-item .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--harvard-red);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--harvard-red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.portfolio-item .btn:hover {
+    background: transparent;
+    color: var(--harvard-red);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(165, 28, 48, 0.3);
+}
+
+.portfolio-item .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--harvard-red);
+    z-index: -1;
+    transition: transform 0.5s;
+    transform-origin: right;
+    transform: scaleX(0);
+}
+
+.portfolio-item .btn:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframe Animations */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation Delays */
+.fade-in:nth-child(3) { transition-delay: 0.6s; }
+.fade-in:nth-child(4) { transition-delay: 0.8s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-nav {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 300px;
+        height: 100vh;
+        background: #333;
+        padding-top: 80px;
+        transition: left 0.3s ease;
+    }
+
+    .main-nav.active {
+        left: 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-list a {
+        color: #fff;
+        padding: 1rem 2rem;
+        display: block;
+    }
+
+    .nav-list a:hover {
+        background: rgba(255,255,255,0.1);
+    }
+
+    .hero-content h2 {
+        font-size: 2em; /* Smaller font size for mobile */
+    }
+
+    .typing-effect {
+        white-space: pre-wrap; /* Allow text to wrap on mobile */
+        border-right: none;
+        width: 100%;
+        animation: fadeIn 1s ease-in;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Contact Section Styling */
+.contact-section {
+    background-color: #f8f9fa;
+    padding: 100px 0;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 50px;
+    font-size: 1.2rem;
+}
+
+.contact-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.contact-info h3 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.contact-items {
+    display: grid;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.contact-item i {
+    font-size: 24px;
+    color: var(--harvard-red);
+}
+
+.contact-details h4 {
+    margin: 0 0 5px;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.contact-details a,
+.contact-details p {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: var(--harvard-red);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.social-link {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 50%;
+    color: #333;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Social media brand colors on hover */
+.social-link[title="LinkedIn"]:hover {
+    background: #0077b5;
+    color: #fff;
+}
+
+.social-link[title="GitHub"]:hover {
+    background: #333;
+    color: #fff;
+}
+
+.social-link[title="Facebook"]:hover {
+    background: #1877f2;
+    color: #fff;
+}
+
+.social-link[title="Twitter"]:hover {
+    background: #1da1f2;
+    color: #fff;
+}
+
+.social-link[title="Instagram"]:hover {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    color: #fff;
+}
+
+.social-link[title="Medium"]:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .social-links {
+        justify-content: center;
+    }
+    
+    .social-link {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* Footer Styles */
+.main-footer {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0 0 10px;
+}
+
+.footer-tagline {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.footer-nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--harvard-red);
+}
+
+.footer-right .social-links {
+    justify-content: flex-end;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    text-align: center;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .footer-right .social-links {
+        justify-content: center;
+    }
+}

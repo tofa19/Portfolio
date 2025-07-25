@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrimonial Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Matrimonial Registration Form</h1>
+
+        <form class="matrimonial-form">
+            <fieldset class="section">
+                <legend>Personal Details</legend>
+
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="18" max="80" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="3"></textarea>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Gender</legend>
+                <div class="radio-group">
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male">Male</label>
+
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="female">Female</label>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Marital Status</legend>
+                <div class="radio-group">
+                    <input type="radio" id="single" name="maritalStatus" value="single" required>
+                    <label for="single">Single</label>
+
+                    <input type="radio" id="divorced" name="maritalStatus" value="divorced" required>
+                    <label for="divorced">Divorced</label>
+
+                    <input type="radio" id="widowed" name="maritalStatus" value="widowed" required>
+                    <label for="widowed">Widowed</label>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Hobbies & Interests</legend>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="reading" name="hobbies" value="reading">
+                    <label for="reading">Reading</label>
+
+                    <input type="checkbox" id="music" name="hobbies" value="music">
+                    <label for="music">Music</label>
+
+                    <input type="checkbox" id="sports" name="hobbies" value="sports">
+                    <label for="sports">Sports</label>
+
+                    <input type="checkbox" id="cooking" name="hobbies" value="cooking">
+                    <label for="cooking">Cooking</label>
+
+                    <input type="checkbox" id="traveling" name="hobbies" value="traveling">
+                    <label for="traveling">Traveling</label>
+
+                    <input type="checkbox" id="movies" name="hobbies" value="movies">
+                    <label for="movies">Movies</label>
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Photo Upload</legend>
+                <label for="photo">Upload Your Photo:</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Education & Qualification</legend>
+                <table class="education-table">
+                    <thead>
+                        <tr>
+                            <th>Degree/Certificate</th>
+                            <th>Institution</th>
+                            <th>Year of Passing</th>
+                            <th>Percentage/Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="degree1" placeholder="e.g., 10th Grade"></td>
+                            <td><input type="text" name="institution1" placeholder="School Name"></td>
+                            <td><input type="number" name="year1" min="1980" max="2025"></td>
+                            <td><input type="text" name="grade1" placeholder="e.g., 85%"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="degree2" placeholder="e.g., 12th Grade"></td>
+                            <td><input type="text" name="institution2" placeholder="School Name"></td>
+                            <td><input type="number" name="year2" min="1980" max="2025"></td>
+                            <td><input type="text" name="grade2" placeholder="e.g., 78%"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="degree3" placeholder="e.g., Bachelor's"></td>
+                            <td><input type="text" name="institution3" placeholder="College Name"></td>
+                            <td><input type="number" name="year3" min="1980" max="2025"></td>
+                            <td><input type="text" name="grade3" placeholder="e.g., 3.5 GPA"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="degree4" placeholder="e.g., Master's"></td>
+                            <td><input type="text" name="institution4" placeholder="University Name"></td>
+                            <td><input type="number" name="year4" min="1980" max="2025"></td>
+                            <td><input type="text" name="grade4" placeholder="e.g., 3.2 GPA"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Professional Details</legend>
+
+                <label for="occupation">Occupation:</label>
+                <input type="text" id="occupation" name="occupation">
+
+                <label for="company">Company Name:</label>
+                <input type="text" id="company" name="company">
+
+                <label for="income">Annual Income:</label>
+                <select id="income" name="income">
+                    <option value="">Select Income Range</option>
+                    <option value="0-50">0 - 50 Thousands</option>
+                    <option value="50 -100000">50 Thousand - 1 Lakhs</option>
+                    <option value="1-2">1 - 2 Lakhs</option>
+                    <option value="2+">2+ Lakhs</option>
+                </select>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Family Details</legend>
+
+                <label for="fatherName">Father's Name:</label>
+                <input type="text" id="fatherName" name="fatherName">
+
+                <label for="motherName">Mother's Name:</label>
+                <input type="text" id="motherName" name="motherName">
+
+                <label for="siblings">Number of Siblings:</label>
+                <input type="number" id="siblings" name="siblings" min="0" max="10">
+
+                <label for="familyType">Family Type:</label>
+                <select id="familyType" name="familyType">
+                    <option value="">Select Family Type</option>
+                    <option value="nuclear">Nuclear Family</option>
+                    <option value="joint">Joint Family</option>
+                </select>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Partner Preferences</legend>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="educated" name="preferences" value="educated">
+                    <label for="educated">Well Educated</label>
+
+                    <input type="checkbox" id="employed" name="preferences" value="employed">
+                    <label for="employed">Employed</label>
+
+                    <input type="checkbox" id="family-oriented" name="preferences" value="family-oriented">
+                    <label for="family-oriented">Family Oriented</label>
+
+                    <input type="checkbox" id="religious" name="preferences" value="religious">
+                    <label for="religious">Religious</label>
+
+                </div>
+            </fieldset>
+
+            <fieldset class="section">
+                <legend>Additional Information</legend>
+                <label for="additionalInfo" class="sr-only">Additional Information about yourself and partner
+                    preferences:</label>
+                <textarea id="additionalInfo" name="additionalInfo" rows="4"
+                    placeholder="Tell us more about yourself and what you're looking for in a partner..."></textarea>
+            </fieldset>
+
+            <div class="submit-section">
+                <button type="submit" class="submit-btn">Submit Form</button>
+                <button type="reset" class="reset-btn">Reset</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

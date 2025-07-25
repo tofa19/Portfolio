@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Matrimonial Form</title>
     <link rel="stylesheet" href="style.css">
+    <script src="validation.js"></script>
 </head>
 
 <body>
@@ -15,21 +16,31 @@
         <form class="matrimonial-form">
             <fieldset class="section">
                 <legend>Personal Details</legend>
-
+            
                 <label for="fullName">Full Name:</label>
-                <input type="text" id="fullName" name="fullName" required>
-
+                <div class="input-wrapper">
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+            
                 <label for="age">Age:</label>
-                <input type="number" id="age" name="age" min="18" max="80" required>
-
+                <div class="input-wrapper">
+                    <input type="number" id="age" name="age" min="18" max="80" required>
+                </div>
+            
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
+                <div class="input-wrapper">
+                    <input type="email" id="email" name="email" required>
+                </div>
+            
                 <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required>
-
+                <div class="input-wrapper">
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+            
                 <label for="address">Address:</label>
-                <textarea id="address" name="address" rows="3"></textarea>
+                <div class="input-wrapper">
+                    <textarea id="address" name="address" rows="3"></textarea>
+                </div>
             </fieldset>
 
             <fieldset class="section">
@@ -128,41 +139,55 @@
 
             <fieldset class="section">
                 <legend>Professional Details</legend>
-
+            
                 <label for="occupation">Occupation:</label>
-                <input type="text" id="occupation" name="occupation">
-
+                <div class="input-wrapper">
+                    <input type="text" id="occupation" name="occupation">
+                </div>
+            
                 <label for="company">Company Name:</label>
-                <input type="text" id="company" name="company">
-
+                <div class="input-wrapper">
+                    <input type="text" id="company" name="company">
+                </div>
+            
                 <label for="income">Annual Income:</label>
-                <select id="income" name="income">
-                    <option value="">Select Income Range</option>
-                    <option value="0-50">0 - 50 Thousands</option>
-                    <option value="50 -100000">50 Thousand - 1 Lakhs</option>
-                    <option value="1-2">1 - 2 Lakhs</option>
-                    <option value="2+">2+ Lakhs</option>
-                </select>
+                <div class="input-wrapper">
+                    <select id="income" name="income">
+                        <option value="">Select Income Range</option>
+                        <option value="0-50">0 - 50 Thousands</option>
+                        <option value="50 -100000">50 Thousand - 1 Lakhs</option>
+                        <option value="1-2">1 - 2 Lakhs</option>
+                        <option value="2+">2+ Lakhs</option>
+                    </select>
+                </div>
             </fieldset>
 
             <fieldset class="section">
                 <legend>Family Details</legend>
 
                 <label for="fatherName">Father's Name:</label>
-                <input type="text" id="fatherName" name="fatherName">
+                <div class="input-wrapper">
+                    <input type="text" id="fatherName" name="fatherName">
+                </div>
 
                 <label for="motherName">Mother's Name:</label>
-                <input type="text" id="motherName" name="motherName">
+                <div class="input-wrapper">
+                    <input type="text" id="motherName" name="motherName">
+                </div>
 
                 <label for="siblings">Number of Siblings:</label>
-                <input type="number" id="siblings" name="siblings" min="0" max="10">
+                <div class="input-wrapper">
+                    <input type="number" id="siblings" name="siblings" min="0" max="10">
+                </div>
 
                 <label for="familyType">Family Type:</label>
-                <select id="familyType" name="familyType">
-                    <option value="">Select Family Type</option>
-                    <option value="nuclear">Nuclear Family</option>
-                    <option value="joint">Joint Family</option>
-                </select>
+                <div class="input-wrapper">
+                    <select id="familyType" name="familyType">
+                        <option value="">Select Family Type</option>
+                        <option value="nuclear">Nuclear Family</option>
+                        <option value="joint">Joint Family</option>
+                    </select>
+                </div>
             </fieldset>
 
             <fieldset class="section">
@@ -198,5 +223,6 @@
         </form>
     </div>
 </body>
+
 
 </html>

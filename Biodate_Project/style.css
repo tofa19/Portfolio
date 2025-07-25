@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -90,13 +89,20 @@ input[type="tel"],
 input[type="number"],
 select,
 textarea {
-    width: 100%;
+    position: relative;
     padding: 10px; /* Increased padding */
-    margin-bottom: 16px; /* Adjusted spacing */
-    border: 1px solid #ccd0d5; /* Softer border color */
+    padding-right: 2.2em !important; /* Make space for icon */
+    margin-bottom: 12px; /* Adjusted spacing */
+    border: 1.5px solid #ccc; /* Updated border style */
     border-radius: 5px; /* More rounded inputs */
-    font-size: 15px; /* Slightly larger font */
+    font-size: 1em; /* Updated font size */
     background-color: #f5f6f7; /* Light background for inputs */
+    box-sizing: border-box; /* Ensure consistent sizing */
+    min-height: 38px; /* Minimum height for inputs */
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    display: block;
 }
 
 input[type="text"]:focus,
@@ -259,4 +265,63 @@ input[type="file"]:hover {
     .reset-btn {
         margin: 8px 0; /* Adjusted margin for stacked buttons */
         width: 100%;
+}
+/* Add at the end of your style.css */
+.input-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    pointer-events: none;
+    z-index: 2;
+    background: transparent;
+    margin-left: -2em;
+}
+.valid-icon {
+    color: #4CAF50;
+    background: #e8f5e9;
+    border-radius: 50%;
+    padding: 2px 4px;
+}
+.invalid-icon {
+    color: #F44336;
+    background: #ffebee;
+    border-radius: 50%;
+    padding: 2px 4px;
+}
+
+/* Wrap each input and its icon in a relative container */
+.input-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    display: block;
+    margin-bottom: 16px;
+}
+
+/* Make sure the form is single column and inputs are full width */
+.matrimonial-form,
+.matrimonial-form .section,
+.matrimonial-form .input-wrapper {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .matrimonial-form {
+        font-size: 0.95em;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+        font-size: 0.95em;
+        min-height: 32px;
+    }
 }

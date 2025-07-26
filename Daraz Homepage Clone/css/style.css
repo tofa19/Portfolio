@@ -1,0 +1,391 @@
+/* General Body Styles */
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Reusable Container */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Top Bar Styling */
+.top-bar {
+    background-color: #f85606; /* Lighter grey for better contrast */
+    padding: 8px 0;
+    font-size: 12px;
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.top-bar a {
+    text-decoration: none;
+    color: #ffffff; /* Darker text color for visibility */
+    margin-right: 20px;
+    font-weight: 800 sans-serif;
+    margin-left: 20px;
+    text-transform: uppercase;
+}
+
+.top-bar a:hover {
+    color: #f85606;
+}
+
+/* Main Header Styling */
+.main-header {
+    background-color: #f85606;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 120px;
+    /* This filter turns the orange logo white */
+    filter: brightness(0) invert(1);
+}
+
+/* Search Container */
+.search-container {
+    flex-grow: 1;
+    margin: 0 30px;
+    display: flex;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+    outline: none;
+    background-color: #fff;
+}
+
+.search-button {
+    background-color: #f57224;
+    border: none;
+    padding: 0 20px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+
+.search-button i {
+    color: white;
+    font-size: 18px;
+}
+
+/* Header Right Side */
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.cart-link {
+    font-size: 24px;
+    color: white;
+    margin-right: 20px;
+}
+
+.app-download-img {
+    height: 40px;
+}
+
+/* Main Content Area */
+.main-content {
+    padding-top: 20px;
+}
+
+/* Hero Section & Carousel */
+.hero-section {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.carousel-container {
+    width: 75%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    margin: 0 3px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #f85606;
+}
+
+/* Side Info Box */
+.side-info {
+    width: 25%;
+}
+
+.download-app-box {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+.download-app-box .title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.download-app-box .rating {
+    font-size: 12px;
+    color: #f85606;
+    margin-bottom: 10px;
+}
+.btn-download {
+    display: block;
+    background-color: #f85606;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.features {
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    margin-bottom: 15px;
+    color: #757575;
+}
+.qr-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.qr-code {
+    width: 60px;
+    height: 60px;
+}
+.qr-section div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.qr-section a img {
+    height: 25px;
+}
+.small-text {
+    font-size: 12px;
+    color: #9e9e9e;
+}
+
+
+/* Sale Banner Section */
+.sale-banner-section img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+
+/* Flash Sale Section */
+.flash-sale-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Header within the Flash Sale Section */
+.flash-sale-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.flash-sale-header h2 {
+    margin: 0;
+    color: #757575;
+    font-weight: normal;
+    font-size: 20px;
+}
+
+/* "On Sale Now" Text */
+.on-sale-now {
+    color: #f85606;
+    margin-right: 20px;
+}
+
+/* "SHOP ALL PRODUCTS" Button */
+.shop-all-button {
+    border: 1px solid #f85606;
+    color: #f85606;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.shop-all-button:hover {
+    background-color: #f85606;
+    color: white;
+}
+
+/* Container for the Product Cards */
+.flash-sale-products {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.flash-sale-products::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual Product Card */
+.product-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background-color: #fff;
+    flex: 0 0 188px; /* Flex-basis of 188px, doesn't grow or shrink */
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 188px;
+    object-fit: cover;
+}
+
+/* Text info below the product image */
+.product-info {
+    padding: 8px;
+}
+
+.product-title {
+    font-size: 14px;
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+    height: 36px; /* Approx 2 lines of text */
+    overflow: hidden;
+}
+
+/* Current Price */
+.price {
+    font-size: 18px;
+    font-weight: 500;
+    color: #f85606;
+    margin: 0;
+}
+
+/* Original Price and Discount */
+.original-price {
+    font-size: 12px;
+    color: #9e9e9e;
+    margin: 0;
+}
+
+.original-price .strikethrough {
+    text-decoration: line-through;
+    margin-right: 4px;
+}
+
+
+/* Categories Section Styling */
+.categories-section {
+    background-color: #fff;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.categories-section h2 {
+    margin: 0 0 15px 0;
+    font-size: 20px;
+    font-weight: 500;
+    color: #4a4a4a;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* 8 columns */
+    gap: 10px;
+}
+
+.category-item {
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+    padding: 10px 5px;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.category-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: transparent;
+}
+
+.category-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.category-item p {
+    margin: 8px 0 0 0;
+    font-size: 14px;
+    line-height: 1.2;
+    height: 34px; /* Ensure consistent height */
+    overflow: hidden;
+}
+.category-item p span {
+    display: block;
+    font-size: 12px;
+    color: #9e9e9e;
+}

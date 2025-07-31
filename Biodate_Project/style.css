@@ -247,9 +247,20 @@ input[type="file"]:hover {
 /* Button Styling */
 .submit-section {
     text-align: center;
-    margin-top: 35px; /* Increased spacing */
-    padding-top: 25px; /* Increased spacing */
+    margin-top: px; /* Increased spacing */
+    padding-top: 10px; /* Increased spacing */
     border-top: 1px solid #e0e0e0; /* Lighter border */
+    background-color: #f8f9fa; /* Light background for button section */
+    border-radius: 8px; /* More rounded corners */
+    box-shadow: 0 2px 5px rgba(29, 70, 184, 0.05); /* Subtle shadow for button section */
+    display: flex; /* Use flex for button stacking */
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons */
+    justify-content: center; /* Center buttons */
+    gap: 10px; /* Space between buttons */
+    width: 50%; /* Full width for button section */
+    margin: 0 auto; /* Center the button section */
+    padding: 20px; /* Padding for button section */
 }
 
 .submit-btn,

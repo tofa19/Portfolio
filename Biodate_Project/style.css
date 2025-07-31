@@ -43,11 +43,34 @@ h1 {
     background-color: #fdfdfd; /* Slightly off-white */
     box-shadow: 0 2px 5px rgba(29, 70, 184, 0.05); /* Subtle shadow for sections */
 }
+.password-fieldset, .personal-info-fieldset, .education-fieldset, .family-fieldset, .contact-fieldset {
+    margin-bottom: 30px; /* Increased spacing for each section */
+}
 
 fieldset {
     border: none; /* Remove default fieldset border */
     padding: 0; /* Reset padding */
     margin: 0; /* Reset margin */
+}
+.password-fieldset {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* More rounded sections */
+    background-color: #fdfdfd; /* Slightly off-white */
+    box-shadow: 0 2px 5px rgba(29, 70, 184, 0.05); /* Subtle shadow for sections */
+}
+.password-toggle {
+    position: absolute;
+    right: 280px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 18px;
+    color: #666;
+    z-index: 1;
+}
+
+.password-toggle:hover {
+    color: #333;
 }
 .section legend {
     color: #000000;
@@ -81,11 +104,19 @@ label {
     white-space: nowrap;
     border: 0;
 }
-
+.photo-upload {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px; /* Increased spacing */
+}
+.photo-upload label {
+    margin-right: 10px; /* Spacing between label and input */
+}
 
 input[type="text"],
 input[type="email"],
 input[type="tel"],
+input[type="password"],
 input[type="number"],
 select,
 textarea {
@@ -324,4 +355,50 @@ input[type="file"]:hover {
         font-size: 0.95em;
         min-height: 32px;
     }
+}
+
+.password-requirements {
+    margin-top: 5px;
+    padding: 8px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.password-requirements small {
+    font-weight: bold;
+    color: #666;
+}
+
+.password-requirements ul {
+    margin: 5px 0 0 0;
+    padding-left: 20px;
+}
+
+.password-requirements li {
+    margin: 2px 0;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.password-requirements li.valid {
+    color: #28a745;
+}
+
+.password-requirements li.invalid {
+    color: #dc3545;
+}
+
+/* Add this to your style.css */
+.dashboard-nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.dashboard-nav input[type="button"] {
+    flex: 1;
+    min-width: 120px;
 }

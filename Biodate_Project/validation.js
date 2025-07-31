@@ -135,4 +135,83 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
         }
     });
+
+    // Real-time password validation
+    const passwordField = document.getElementById('password');
+    const requirements = document.querySelectorAll('.password-requirements li');
+    
+    if (passwordField && requirements.length > 0) {
+        passwordField.addEventListener('input', function() {
+            const password = this.value;
+            
+            // Check length
+            if (requirements[0]) {
+                if (password.length >= 6) {
+                    requirements[0].classList.add('valid');
+                    requirements[0].classList.remove('invalid');
+                } else {
+                    requirements[0].classList.add('invalid');
+                    requirements[0].classList.remove('valid');
+                }
+            }
+            
+            // Check uppercase
+            if (requirements[1]) {
+                if (/[A-Z]/.test(password)) {
+                    requirements[1].classList.add('valid');
+                    requirements[1].classList.remove('invalid');
+                } else {
+                    requirements[1].classList.add('invalid');
+                    requirements[1].classList.remove('valid');
+                }
+            }
+            
+            // Check number
+            if (requirements[2]) {
+                if (/[0-9]/.test(password)) {
+                    requirements[2].classList.add('valid');
+                    requirements[2].classList.remove('invalid');
+                } else {
+                    requirements[2].classList.add('invalid');
+                    requirements[2].classList.remove('valid');
+                }
+            }
+            
+            // Check special character
+            if (requirements[3]) {
+                if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+                    requirements[3].classList.add('valid');
+                    requirements[3].classList.remove('invalid');
+                } else {
+                    requirements[3].classList.add('invalid');
+                    requirements[3].classList.remove('valid');
+                }
+            }
+        });
+    }
 });
+
+function togglePassword() {
+    const passwordField = document.getElementById('password');
+    const toggleIcon = document.querySelector('.password-toggle');
+    
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        toggleIcon.textContent = '🙈';
+    } else {
+        passwordField.type = 'password';
+        toggleIcon.textContent = '👁️';
+    }
+    function togglePassword() {
+        const passwordField = document.getElementById('new_password');
+        const toggleIcon = document.querySelector('.password-toggle');
+        
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleIcon.textContent = '🙈';
+        } else {
+            passwordField.type = 'password';
+            toggleIcon.textContent = '👁️';
+        }
+    }
+}

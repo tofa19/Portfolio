@@ -25,7 +25,8 @@ if (isset($_GET['delete_user'])) {
 }
 
 // Get all users with their biodata
-$sql = "SELECT u.*, b.age, b.occupation, b.income FROM users u LEFT JOIN biodata b ON u.id = b.user_id WHERE u.role = 'user' ORDER BY u.id DESC";
+$sql = "SELECT u.*, b.age, b.occupation, b.income FROM users u LEFT JOIN biodata b ON u.id = b.user_id 
+WHERE u.role = 'user' ORDER BY u.id DESC";
 $result = $conn->query($sql);
 ?>
 

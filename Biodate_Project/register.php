@@ -87,30 +87,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     echo "<div style='background: lightgreen; padding: 10px; margin: 10px;'>User created with ID: $user_id</div>";
 
                     // Prepare all variables for biodata
-                    $degree1 = $_POST['degree1'] ?? '';
-                    $institution1 = $_POST['institution1'] ?? '';
-                    $year1 = $_POST['year1'] ?? null;
-                    $grade1 = $_POST['grade1'] ?? '';
-                    $degree2 = $_POST['degree2'] ?? '';
-                    $institution2 = $_POST['institution2'] ?? '';
-                    $year2 = $_POST['year2'] ?? null;
-                    $grade2 = $_POST['grade2'] ?? '';
-                    $degree3 = $_POST['degree3'] ?? '';
-                    $institution3 = $_POST['institution3'] ?? '';
-                    $year3 = $_POST['year3'] ?? null;
-                    $grade3 = $_POST['grade3'] ?? '';
-                    $degree4 = $_POST['degree4'] ?? '';
-                    $institution4 = $_POST['institution4'] ?? '';
-                    $year4 = $_POST['year4'] ?? null;
-                    $grade4 = $_POST['grade4'] ?? '';
-                    $occupation = $_POST['occupation'] ?? '';
-                    $company = $_POST['company'] ?? '';
-                    $income = $_POST['income'] ?? '';
-                    $fatherName = $_POST['fatherName'] ?? '';
-                    $motherName = $_POST['motherName'] ?? '';
-                    $siblings = $_POST['siblings'] ?? 0;
-                    $familyType = $_POST['familyType'] ?? '';
-                    $additionalInfo = $_POST['additionalInfo'] ?? '';
+                    $degree1 = $_POST['degree1'] ?? '';         $institution1 = $_POST['institution1'] ?? '';
+                    $year1 = $_POST['year1'] ?? null;           $grade1 = $_POST['grade1'] ?? '';
+                    $degree2 = $_POST['degree2'] ?? '';         $institution2 = $_POST['institution2'] ?? '';
+                    $year2 = $_POST['year2'] ?? null;           $grade2 = $_POST['grade2'] ?? '';
+                    $degree3 = $_POST['degree3'] ?? '';         $institution3 = $_POST['institution3'] ?? '';
+                    $year3 = $_POST['year3'] ?? null;           $grade3 = $_POST['grade3'] ?? '';
+                    $degree4 = $_POST['degree4'] ?? '';         $institution4 = $_POST['institution4'] ?? '';
+                    $year4 = $_POST['year4'] ?? null;           $grade4 = $_POST['grade4'] ?? '';
+                    $occupation = $_POST['occupation'] ?? '';   $company = $_POST['company'] ?? '';
+                    $income = $_POST['income'] ?? '';           $fatherName = $_POST['fatherName'] ?? '';
+                    $motherName = $_POST['motherName'] ?? '';   $siblings = $_POST['siblings'] ?? 0;
+                    $familyType = $_POST['familyType'] ?? '';   $additionalInfo = $_POST['additionalInfo'] ?? '';
                     $preferences = isset($_POST['preferences']) ? implode(', ', $_POST['preferences']) : '';
 
                     // Convert empty year values to NULL for database

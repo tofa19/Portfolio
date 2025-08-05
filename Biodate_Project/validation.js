@@ -3,19 +3,24 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.matrimonial-form');
     const inputs = form.querySelectorAll('input, textarea, select');
 
+    // Check if this is a login page or registration page
+    const isLoginPage = document.querySelector('input[name="email"]') && document.querySelector('input[name="password"]') && inputs.length <= 3;
+
     // SVG icons for tick and cross
     const tickSVG = `<span class="input-icon valid-icon">&#10003;</span>`;
     const crossSVG = `<span class="input-icon invalid-icon">&#10007;</span>`;
 
-    // Prevent numbers in Full Name, Occupation, Father's Name, Mother's Name
-    ['fullName', 'occupation', 'fatherName', 'motherName'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-            el.addEventListener('input', function () {
-                this.value = this.value.replace(/[0-9]/g, '');
-            });
-        }
-    });
+    // Prevent numbers in Full Name, Occupation, Father's Name, Mother's Name (only for registration)
+    if (!isLoginPage) {
+        ['fullName', 'occupation', 'fatherName', 'motherName'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', function () {
+                    this.value = this.value.replace(/[0-9]/g, '');
+                });
+            }
+        });
+    }
 
     // Remove icons
     function removeIcon(input) {
@@ -32,9 +37,40 @@ document.addEventListener('DOMContentLoaded', function () {
         input.insertAdjacentHTML('afterend', isValid ? tickSVG : crossSVG);
     }
 
+    // Enhanced password validation function
+    function validatePassword(password) {
+        if (isLoginPage) {
+            // For login: only check minimum length
+            return password.length >= 6;
+        } else {
+            // For registration: check all requirements
+            const hasLength = password.length >= 6;
+            const hasUpper = /[A-Z]/.test(password);
+            const hasNumber = /[0-9]/.test(password);
+            const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+            
+            return hasLength && hasUpper && hasNumber && hasSpecial;
+        }
+    }
+
     // Validation rules
     function validate(input) {
         if (input.disabled || input.type === 'fieldset' || input.type === 'button') return true;
+        
+        // Password validation
+        if (input.type === 'password') {
+            return validatePassword(input.value);
+        }
+        
+        // Login page validation
+        if (isLoginPage) {
+            if (input.type === 'email') {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+            }
+            return input.value.trim() !== '';
+        }
+        
+        // Registration page validation
         if (input.type === 'radio') {
             const group = form.querySelectorAll(`input[name="${input.name}"]`);
             return Array.from(group).some(r => r.checked);
@@ -109,6 +145,24 @@ document.addEventListener('DOMContentLoaded', function () {
     // On submit
     form.addEventListener('submit', function (e) {
         let allValid = true;
+        
+        // For login page
+        if (isLoginPage) {
+            inputs.forEach(input => {
+                if (input.value.trim() === '' || !validate(input)) {
+                    allValid = false;
+                    input.style.border = '2px solid #F44336';
+                    addIcon(input, false);
+                }
+            });
+            if (!allValid) {
+                e.preventDefault();
+                alert('Please fill in all fields correctly.');
+            }
+            return;
+        }
+        
+        // For registration page
         inputs.forEach(input => {
             if (
                 (input.type !== 'checkbox' && input.type !== 'radio' && input.hasAttribute('required') && input.value.trim() === '') ||
@@ -119,7 +173,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 addIcon(input, false);
             }
         });
-        // Check radio groups
+        
+        // Check radio groups for registration
         const radioGroups = new Set();
         form.querySelectorAll('input[type="radio"]').forEach(radio => {
             if (!radioGroups.has(radio.name)) {
@@ -131,16 +186,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         });
+        
         if (!allValid) {
             e.preventDefault();
         }
     });
 
-    // Real-time password validation
+    // Real-time password validation (only for registration page)
     const passwordField = document.getElementById('password');
     const requirements = document.querySelectorAll('.password-requirements li');
     
-    if (passwordField && requirements.length > 0) {
+    if (passwordField && requirements.length > 0 && !isLoginPage) {
         passwordField.addEventListener('input', function() {
             const password = this.value;
             
@@ -191,27 +247,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// Toggle password visibility (for login page)
 function togglePassword() {
     const passwordField = document.getElementById('password');
-    const toggleIcon = document.querySelector('.password-toggle');
+    const toggle = document.querySelector('.password-toggle');
     
-    if (passwordField.type === 'password') {
-        passwordField.type = 'text';
-        toggleIcon.textContent = '🙈';
-    } else {
-        passwordField.type = 'password';
-        toggleIcon.textContent = '👁️';
-    }
-    function togglePassword() {
-        const passwordField = document.getElementById('new_password');
-        const toggleIcon = document.querySelector('.password-toggle');
-        
+    if (passwordField && toggle) {
         if (passwordField.type === 'password') {
             passwordField.type = 'text';
-            toggleIcon.textContent = '🙈';
+            toggle.textContent = '🙈';
         } else {
             passwordField.type = 'password';
-            toggleIcon.textContent = '👁️';
+            toggle.textContent = '👁️';
         }
     }
 }

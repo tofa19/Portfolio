@@ -236,7 +236,7 @@ if (isset($_POST['update_profile'])) {
         <h1>Update Your Biodata</h1>
         
         <div class="dashboard-nav">
-            <a href="user_dashboard.php" class="submit-btn">Back to Dashboard</a>
+            <input type="button" value="Go to Dashboard" onclick="location.href='user_dashboard.php';" class=submit-btn>
         </div>
         <br>
         <?php if($success): ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2025 at 03:11 PM
+-- Generation Time: Aug 05, 2025 at 07:04 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -66,7 +66,9 @@ CREATE TABLE `biodata` (
 --
 
 INSERT INTO `biodata` (`id`, `user_id`, `age`, `address`, `hobbies`, `photo`, `degree1`, `institution1`, `year1`, `grade1`, `degree2`, `institution2`, `year2`, `grade2`, `degree3`, `institution3`, `year3`, `grade3`, `degree4`, `institution4`, `year4`, `grade4`, `occupation`, `company`, `income`, `fatherName`, `motherName`, `siblings`, `familyType`, `preferences`, `additionalInfo`) VALUES
-(8, 22, 25, 'Gaharudi, gomandaras', 'reading, sports, traveling', 'uploads/edit this image_ A s.png', 'SSC', 'SSAC', 2014, '5.00', 'HSC', 'ACC', 2016, '5.00', 'SuTT', 'DIU', 2020, '3.5', 'Msc in ICE', 'DIU', 2025, '3.2', 'Tutor', 'Own Company', '50-100', 'MD Abdul Karim', 'Nilufar Yeasmin ', 2, 'nuclear', 'educated, family-oriented', 'Am a tutor');
+(10, 24, 25, 'Konabari, Gazipur, Dhaka', 'music, movies', 'uploads/shahin.jpg', 'SSC ', 'Milestone', 2017, '5.00', 'HSC', 'Milestone', 2019, '5.00', 'CSE', 'DIU ', 2023, '3.5', 'MSC', 'BRAC', 2025, '3.4', 'Player', 'Playboy Club', '0-50 Thousands', 'ABCD', 'EFGH', 1, 'nuclear', 'educated, family-oriented', 'I am md. shahinur Alam Rabbi .looking forward to find a perfect match'),
+(11, 25, 25, '60 Feet Barek Molla Road, Mirpur, Dhaka', 'reading, music, cooking, movies', 'uploads/rohan.jpg', 'SSC ', 'BLSC', 2018, '5.00', 'HSC', 'BLCS', 2020, '5.00', 'Bsc in CSE', 'ACC', 2025, '3.50', 'Msc in CSE', 'MIT', 2027, '3.50', 'Student', 'Not Working Yet ', '', 'Abcd', 'Efgh', 2, 'nuclear', 'educated, family-oriented', 'I am Rohan, '),
+(12, 26, 65, 'Moktar bari road, Auchpara, Tongi, Gazipur', 'reading, sports', 'uploads/Screenshot 2025-05-25 231351.png', 'SSC', 'Milestone', 1984, '90%', 'HSC', 'ACC', 1985, '85%', 'Hon\'s', 'DIU', 1987, '2.56', 'Not Applicable', 'Not Applicable', 1980, '456', 'Businessman', 'Bekar company ltd', '', 'Hasem Ali', 'Gulbahar Khanom', 0, 'nuclear', 'educated, family-oriented', 'Old but yong');
 
 -- --------------------------------------------------------
 
@@ -91,7 +93,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `email`, `password`, `fullName`, `phone`, `gender`, `maritalStatus`, `role`) VALUES
 (8, 'admin@matrimonial.com', '$2y$10$O8WNTmBRzYIrTL/DCWebQezRafhaxDy6z3UsSlsatXMAE/PplXRBe', 'Admin', '1234567890', 'male', 'single', 'admin'),
-(22, 'tofa123@gmail.com', '$2y$10$wPAneWyw/LU9JLOQ8eY9UuVRmmBlv0CoVkNXeKzJjdMHbv9DmU4JC', 'Toufique Ahamed', '01235698541', 'male', 'single', 'user');
+(24, 'shahin@gmail.com', '$2y$10$WW0pm5A9ZM4XDZHEt31JQu0NxIzgoMST.7rtyQVJxSJaW7VoffJau', 'Shahinur Alam rabbi', '01328925633', 'male', 'single', 'user'),
+(25, 'rohan@gmail.com', '$2y$10$3DBgaojUAtRq0lCO4qKpWuAdSyf.Tyso/CANqNggvuwgvaPhV3eCy', 'Mehedi Hasan Rohan', '01234567896', 'male', 'single', 'user'),
+(26, 'abul@gmail.com', '$2y$10$.g62DrKU/TVDFRjNudA4e.cHOKW2XZhIb/GzE1H.9oi2SV2cidfiy', 'Md Abul Mia', '01547889966', 'male', 'single', 'user');
 
 --
 -- Indexes for dumped tables
@@ -120,13 +124,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `biodata`
 --
 ALTER TABLE `biodata`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables

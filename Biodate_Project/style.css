@@ -61,7 +61,7 @@ fieldset {
 }
 .password-toggle {
     position: absolute;
-    right: 280px;
+    left: 1050px;
     cursor: pointer;
     user-select: none;
     font-size: 18px;

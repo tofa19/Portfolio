@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,23 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
     <!-- Google Fonts (Merriweather for serif, Open Sans for sans-serif) -->
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS Library for scroll animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
+
 <body>
 
     <!-- Fullscreen Menu (Hidden by default) -->
     <div class="fullscreen-menu" id="fullscreen-menu">
         <div class="fullscreen-menu-header">
-           
-            <button class="fullscreen-menu-close" id="menu-close-btn">Close <span class="close-x">&times;</span></button>
+
+            <button class="fullscreen-menu-close" id="menu-close-btn" >Close <span
+                    class="close-x" >&times;</span></button>
         </div>
         <div class="fullscreen-menu-body">
             <nav class="fullscreen-menu-nav">
@@ -57,9 +62,11 @@
             <!-- Search Bar (expands from search icon) -->
             <div class="header-search-bar" id="header-search-bar">
                 <form class="header-search-form" autocomplete="off">
-                    <input type="text" class="header-search-input" placeholder="Search Toufique's Website" id="header-search-input" aria-label="Search Toufique's Website" required>
+                    <input type="text" class="header-search-input" placeholder="Search Toufique's Website"
+                        id="header-search-input" aria-label="Search Toufique's Website" required>
                     <button type="submit" class="header-search-btn"><i class="fas fa-search"></i></button>
-                    <button type="button" class="header-search-close" id="header-search-close"><i class="fas fa-times"></i></button>
+                    <button type="button" class="header-search-close" id="header-search-close"><i
+                            class="fas fa-times"></i></button>
                 </form>
             </div>
         </div>
@@ -70,30 +77,32 @@
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-content">
-                <h2 class="hero-heading">Welcome to My Personal Webpage</h2>
+                <h2 class="hero-heading" data-aos="fade-up" >Welcome to My Personal Webpage</h2>
                 <p data-aos="fade-up" data-aos-delay="200">Inspired by the pursuit of knowledge and excellence.</p>
-           </div>
+            </div>
         </section>
 
         <!-- About Me Section -->
         <section id="about" class="about-harvard-section">
             <div class="about-harvard-grid container">
                 <div class="about-harvard-image" data-aos="fade-right" data-aos-delay="200">
-                    <img src="profile.jpg" alt="Toufique Ahamed's Profile Picture" onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/000000?text=Image+Not+Found';">
+                    <img src="profile.jpg" alt="Toufique Ahamed's Profile Picture"
+                        onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/000000?text=Image+Not+Found';">
                 </div>
                 <div class="about-harvard-content" data-aos="fade-left" data-aos-delay="400">
                     <div class="about-harvard-quote">
                         <svg class="about-harvard-quote-svg" width="140" height="120" viewBox="0 0 140 120" fill="none">
-                            <text x="0" y="100" font-size="120" fill="#A51C30" font-family="Merriweather, serif" opacity="0.12">“</text>
+                            <text x="0" y="100" font-size="120" fill="#A51C30" font-family="Merriweather, serif"
+                                opacity="0.12">“</text>
                         </svg>
                         <h2 class="about-harvard-title">About Me</h2>
                         <div class="about-harvard-text">
-                            <p>Hello! I'm Toufique Ahamed, a passionate Researcher, Designer, and Developer. With a strong foundation in computer science and a keen eye for design, I specialize in creating intuitive and effective digital solutions.</p>
-                            <p>This website serves as a personal showcase of my journey, projects, and professional growth. Through my work, I strive to blend creativity with functionality, delivering solutions that make a positive impact.</p>
-                        </div>
-                        <div class="about-harvard-meta">
-                            <strong>Toufique Ahamed</strong><br>
-                            <span>Researcher | Designer | Developer</span>
+                            <p>Hello! I'm Toufique Ahamed, a passionate Researcher, Designer, and Developer. With a
+                                strong foundation in computer science and a keen eye for design, I specialize in
+                                creating intuitive and effective digital solutions.</p>
+                            <p>This website serves as a personal showcase of my journey, projects, and professional
+                                growth. Through my work, I strive to blend creativity with functionality, delivering
+                                solutions that make a positive impact.</p>
                         </div>
                         <a href="#portfolio" class="about-harvard-link">
                             <span class="about-harvard-arrow"><i class="fas fa-arrow-right"></i></span>
@@ -111,42 +120,55 @@
                 <div class="portfolio-grid">
                     <!-- Portfolio Item 1: Matrimonial Biodata -->
                     <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
-                        <img src="matrimoni.png" alt="Matrimonial Biodata" style="width:100%;height:220px;object-fit:cover;">
+                        <img src="matrimoni.png" alt="Matrimonial Biodata"
+                            style="width:100%;height:220px;object-fit:cover;">
                         <div class="portfolio-content">
                             <h3>Matrimonial Biodata</h3>
                             <p>A structured display of personal and professional information.</p>
-                            <a href="Biodate_Project/register.php" class="btn btn-secondary">View Project</a>
+                            <a href="Biodate_Project/register.php" class="about-harvard-link">
+                                <span class="about-harvard-arrow"><i class="fas fa-arrow-right"></i></span>
+                                View Biodata Project
+                            </a>
                         </div>
                     </div>
                     <!-- Portfolio Item 2: Simple Calculator -->
                     <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200">
-                        <img src="calculator.png" alt="Simple Calculator" style="width:100%;height:220px;object-fit:cover;">
+                        <img src="calculator.png" alt="Simple Calculator"
+                            style="width:100%;height:220px;object-fit:cover;">
                         <div class="portfolio-content">
                             <h3>Simple Calculator</h3>
                             <p>A basic JavaScript calculator for arithmetic operations.</p>
-                            <a href="Calculator/calculator.html" class="btn btn-secondary">View Project</a>
+                            <a href="Calculator/calculator.html" class="about-harvard-link">
+                                <span class="about-harvard-arrow"><i class="fas fa-arrow-right"></i></span>
+                                View Calculator Project
+                            </a>
                         </div>
                     </div>
                     <!-- Portfolio Item 3: Daraz Clone -->
                     <div class="portfolio-item" data-aos="fade-up" data-aos-delay="300">
-                        <img src="daraz.png" alt="Daraz Website Clone" style="width:100%;height:220px;object-fit:cover;">
+                        <img src="daraz.png" alt="Daraz Website Clone"
+                            style="width:100%;height:220px;object-fit:cover;">
                         <div class="portfolio-content">
                             <h3>Daraz Website Clone</h3>
                             <p>A clone of the Daraz e-commerce homepage using HTML, CSS, and JS.</p>
-                            <a href="Daraz Homepage Clone/index.html" class="btn btn-secondary">View Project</a>
+                            <a href="Daraz Homepage Clone/index.html" class="about-harvard-link">
+                                <span class="about-harvard-arrow"><i class="fas fa-arrow-right"></i></span>
+                                View Daraz Clone Project
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <section class="contact-harvard-intro">
+            
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="contact-harvard-section">
             <div class="container">
                 <h2 class="contact-harvard-heading">GET IN TOUCH</h2>
                 <div class="contact-harvard-divider"></div>
             </div>
-        </section>
-        <!-- Contact Section -->
-        <section id="contact" class="contact-harvard-section">
             <div class="contact-harvard-bg"></div>
             <div class="contact-harvard-grid container">
                 <div class="contact-harvard-left" data-aos="fade-right">
@@ -173,6 +195,7 @@
                 </div>
             </div>
         </section>
+        <!-- Contact Form Section -->
     </main>
 
     <!-- Main Footer Section -->
@@ -210,10 +233,14 @@
                 <!-- If you want a logo image, add it here -->
             </div>
             <div class="footer-social">
-                <a href="https://www.linkedin.com/in/toufique-ahamed-71402a312/" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/tofa19" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.facebook.com/toufique4980/" target="_blank" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/_tofen_/" target="_blank" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/toufique-ahamed-71402a312/" target="_blank" class="social-link"
+                    title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/tofa19" target="_blank" class="social-link" title="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/toufique4980/" target="_blank" class="social-link" title="Facebook"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/_tofen_/" target="_blank" class="social-link" title="Instagram"><i
+                        class="fab fa-instagram"></i></a>
             </div>
             <div class="footer-bottom">
                 <p>&copy; <span id="current-year"></span> Toufique Ahamed. All Rights Reserved.</p>
@@ -225,4 +252,5 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

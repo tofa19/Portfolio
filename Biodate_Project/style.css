@@ -14,6 +14,7 @@ body {
     padding: 20px;
     line-height: 1.6;
     color: #160e0e; 
+    position: relative;
 }
 
 h1 {
@@ -412,4 +413,68 @@ input[type="file"]:hover {
 .dashboard-nav input[type="button"] {
     flex: 1;
     min-width: 120px;
+}
+
+/* Add to style.css */
+.gear-icon {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    font-size: 48px;
+    cursor: pointer;
+    z-index: 1000;
+    color: #333;
+    transition: color 0.2s;
+}
+.gear-icon:hover {
+    color: #007bff;
+}
+.nav-popup {
+    position: absolute;
+    top: 80px;
+    right: 40px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 0;
+    border-radius: 8px;
+    z-index: 999;
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(.4,0,.2,1), transform 0.3s cubic-bezier(.4,0,.2,1);
+}
+.nav-popup.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 16px 0;
+}
+.nav-menu li {
+    margin: 0;
+    padding: 0;
+}
+.nav-menu a {
+    display: block;
+    padding: 12px 32px;
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background 0.2s, color 0.2s;
+    border-bottom: 1px solid #eee;
+}
+.nav-menu a:last-child {
+    border-bottom: none;
+}
+.nav-menu a:hover,
+.nav-menu .logout-link:hover {
+    background: #f0f2f5;
+    color: #007bff;
+}
+.logout-link {
+    color: #d9534f;
 }

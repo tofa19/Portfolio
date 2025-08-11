@@ -33,13 +33,15 @@ $biodata = $stmt2->get_result()->fetch_assoc();
 </head>
 
 <body>
+    <span class="gear-icon" onclick="toggleNav()" title="Settings">&#9881;</span>
     <div class="container">
         <h1>Welcome, <?php echo htmlspecialchars($user['fullName']); ?>!</h1>
-
-        <div class="dashboard-nav">
-            <input type="button" value="Edit Profile" class="submit-btn" onclick="window.location.href='update_biodata.php'">
-            <input type="button" value="Change Password" class="submit-btn" onclick="window.location.href='change_password.php'">
-            <input type="button" value="Logout" class="reset-btn" onclick="window.location.href='logout.php'"> 
+        <div id="nav-buttons" class="nav-popup">
+            <ul class="nav-menu">
+                <li><a href="update_biodata.php">Edit Profile</a></li>
+                <li><a href="change_password.php">Change Password</a></li>
+                <li><a href="logout.php" class="logout-link">Logout</a></li>
+            </ul>
         </div>
         <br>
         <fieldset class="section">
@@ -49,7 +51,6 @@ $biodata = $stmt2->get_result()->fetch_assoc();
             <?php if ($biodata): ?>
                 <p><strong>Age:</strong> <?php echo htmlspecialchars($biodata['age']); ?></p>
                 <p><strong>Address:</strong> <?php echo htmlspecialchars($biodata['address']); ?></p>
-
         </fieldset>
         <fieldset class="section">
             <legend>Gender</legend>
@@ -123,6 +124,14 @@ $biodata = $stmt2->get_result()->fetch_assoc();
             </fieldset>
         <?php endif; ?>
     </div>
+
+    <script>
+    function toggleNav() {
+        var nav = document.getElementById('nav-buttons');
+        nav.classList.toggle('active');
+    }
+    </script>
+
 </body>
 
 </html>

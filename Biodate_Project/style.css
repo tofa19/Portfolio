@@ -10,12 +10,13 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1250px;
     margin: 48px auto;
     background: rgba(255,255,255,0.7);
     box-shadow: 0 8px 32px rgba(60, 60, 120, 0.18);
     border-radius: 24px;
-    padding: 40px 32px 32px 32px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    padding: 40px 32px;
     backdrop-filter: blur(8px);
     animation: glassFadeIn 1s cubic-bezier(.42,0,.58,1);
     position: relative;
@@ -99,7 +100,13 @@ input[type="text"], input[type="email"], input[type="password"], input[type="num
     transition: border-color 0.25s, box-shadow 0.25s;
     box-shadow: 0 1px 4px rgba(33,150,243,0.04);
 }
-
+input[type="radio"], input[type="checkbox"] {
+    accent-color: #1976d2;
+    margin-right: 8px;
+    vertical-align: middle; /* <-- Add this line */
+    transform: scale(1.18);
+    transition: accent-color 0.2s;
+}
 input:focus, textarea:focus, select:focus {
     border-color: #1976d2;
     outline: none;
@@ -123,7 +130,9 @@ input[type="radio"], input[type="checkbox"] {
     flex-wrap: wrap;
     gap: 22px;
     margin-bottom: 14px;
+    align-items: center; /* <-- Add this line */
 }
+
 
 .education-table, .admin-table {
     width: 100%;
@@ -150,6 +159,7 @@ input[type="radio"], input[type="checkbox"] {
     border: none;
     padding: 12px 12px;
     text-align: left;
+    font-size: 1.05rem;
     font-size: 1rem;
     background: none;
 }
@@ -483,4 +493,94 @@ body::after {
     border-radius: 50%;
     pointer-events: none;
     filter: blur(2px);
+}
+
+/* --- Form Grid Styles --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1.9fr;
+    gap: 20px;
+}
+.form-grid > div {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.form-grid fieldset {
+    margin: 0;
+}
+fieldset.section {
+    border: none;
+    padding: 0;
+    margin-bottom: 16px;
+}
+.section {
+    padding-left: 32px; /* Adjust value as needed */
+}
+.section p {
+    padding-left: 20px; /* Adjust value as needed */
+}
+legend {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    background: #e3f2fd;
+    border-radius: 8px;
+    padding: 4px 16px;
+    color: #2196f3;
+    display: inline-block;
+}
+.input-wrapper input,
+.input-wrapper textarea,
+.input-wrapper select {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #cfd8dc;
+    margin-bottom: 12px;
+    font-size: 1em;
+    background: #f5faff;
+}
+
+.education-table th {
+    background: #bbdefb;
+    color: #1976d2;
+    padding: 6px 8px;
+    border-radius: 20px;      /* Remove rounded corners */
+    font-weight: 600;
+    font-size: 1em;
+    border: 1px solid #e3f2fd;
+}
+
+.education-table td {
+    padding: 6px 8px;
+    border: 1px solid #e3f2fd;
+    background: #f5faff;
+}
+
+.education-table input[type="text"],
+.education-table input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid #cfd8dc;
+    background: #f5faff;
+    font-size: 1em;
+}
+
+.education-table input[type="text"]:focus,
+.education-table input[type="number"]:focus {
+    border-color: #2196f3;
+    outline: none;
+}
+@media (max-width: 900px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
 }

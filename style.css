@@ -253,7 +253,7 @@ h1, h2, h3 {
     border: none;
     color: #fff;
     font-size: 1.12rem;
-    margin-left: 8px;
+    margin-left: 10px;
     cursor: pointer;
     border-radius: 50%;
     width: 32px;
@@ -263,13 +263,16 @@ h1, h2, h3 {
     justify-content: center;
     border: 1px solid #444;
     transition: background 0.2s;
+    gap: 10px;
 }
 
 .close-x {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    line-height: 1;
+    color: #fff;
     font-family: 'Font Awesome 6 Free';
-    padding-right: 58px;
-    font-weight: 1000;
+    padding-right: 59px;
+    font-weight: 900;
 }
 
 .fullscreen-menu-body {

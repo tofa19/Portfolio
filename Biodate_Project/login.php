@@ -48,31 +48,26 @@ if ($_POST) {
     <div class="container">
         <h1>Matrimonial Login</h1>
         
-        <?php if ($error): ?>
-            <div style="color: red; margin-bottom: 15px;"><?php echo $error; ?></div>
-        <?php endif; ?>
-
-        <form method="POST" class="matrimonial-form">
-            <fieldset class="section">
-                <legend>Login Details</legend>
-
-                <label for="email">Email:</label>
-                <div class="input-wrapper">
-                    <input type="email" id="email" name="email" required>
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <img src="logo.png" alt="Matrimonial Logo" style="height: 120px; margin-right: 40px;">
+            <form method="POST" class="matrimonial-form">
+                <fieldset class="section">
+                    <legend>Login Details</legend>
+                    <label for="email">Email:</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <label for="password">Password: <span class="password-toggle" onclick="togglePassword()">👁️</span></label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" name="password" value="<?php echo htmlspecialchars($_POST['password'] ?? ''); ?>">
+                    </div>
+                </fieldset>
+                <div class="submit-section">
+                    <button type="submit" class="submit-btn">Login</button>
+                    <button type="button" class="submit-btn" onclick="window.location.href='register.php'">Register as a New User</button>
                 </div>
-
-                <label for="password">Password: <span class="password-toggle" onclick="togglePassword()">👁️</span></label>
-                <div class="input-wrapper">
-                    <input type="password" id="password" name="password" value="<?php echo htmlspecialchars($_POST['password'] ?? ''); ?>">
-                </div>
-            </fieldset>
-
-            <div class="submit-section">
-                <button type="submit" class="submit-btn">Login</button>
-                <button type="button" class="submit-btn" onclick="window.location.href='register.php'">Register as a New User</button>
-            </div>
-        </form>
-
+            </form>
+        </div>
         <div style="text-align: center; margin-top: 20px;">
             <p><small>Admin Login: Use admin credentials</small></p>
         </div>

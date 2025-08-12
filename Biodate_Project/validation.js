@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const isLoginPage = document.querySelector('input[name="email"]') && document.querySelector('input[name="password"]') && inputs.length <= 3;
 
     // SVG icons for tick and cross
-    const tickSVG = `<span class="input-icon valid-icon">&#10003;</span>`;
-    const crossSVG = `<span class="input-icon invalid-icon">&#10007;</span>`;
+    //const tickSVG = `<span class="input-icon valid-icon">&#10003;</span>`;
+    //const crossSVG = `<span class="input-icon invalid-icon">&#10007;</span>`;
 
     // Prevent numbers in Full Name, Occupation, Father's Name, Mother's Name (only for registration)
     if (!isLoginPage) {
